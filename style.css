@@ -17,7 +17,10 @@ link:hover {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  margin: 0;
+  margin-bottom: 50px;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 50px;
   padding: 0;
   background-color: aliceblue;
 }
@@ -30,6 +33,10 @@ link:hover {
 }
 
 /* each menu dropdown */
+.menubutton {
+	//align text to the left
+}
+
 .dropdown {
   list-style-type: none;
   position: relative;
@@ -53,4 +60,13 @@ link:hover {
 
 li {
   padding: 10px 5px 10px 0px;
+}
+
+/* grid formatting and design */
+.gridbody {
+	display: flex;
+}
+
+.griditem {
+	
 }

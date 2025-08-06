@@ -9,16 +9,16 @@
   <body>
     <header>
       <p>
-      <h1>Welcome to the Artist Reference Hub.</h1>
+      <h1><a href="./index.html">Welcome to the Artist Reference Hub.</a></h1>
       <hr />
-      This is simply an organized way to find all the generators, picture hubs,
+      This is simply an organized way to find all the generators, picture repositories,
       and other links I have collected over the years but forget about.
 	  </p>
     </header>
     <nav>
       <div class="navbar">
         <menu class="dropdown">
-          <li><a href="drawing.html">Drawing</a></li>
+          <li class="menu-button"><a href="./index.html?subject=drawing">Drawing</a></li>
           <div class="dd-link">
             <li><a href="./index.html?subject=drawing&category=artist">Artist's Pages</a></li>
             <li><a href="./index.html?subject=drawing&category=assets">Assets (CSP)</a></li>
@@ -28,14 +28,14 @@
           </div>
         </menu>
         <menu class="dropdown">
-          <li>General</li>
+          <li class="menu-button"><a href="./index.html?subject=general">General</a></li>
           <div class="dd-link">
             <li><a href="./index.html?subject=general&category=settings">Recommended Calibration and Settings</a></li>
             <li><a href="./index.html?subject=general&category=study">Subject Studies</a></li>
           </div>
         </menu>
         <menu class="dropdown">
-          <li>Worldbuilding</li>
+          <li class="menu-button">Worldbuilding</li>
           <div class="dd-link">
             <li><em>in progress</em></li>
           </div>
@@ -43,9 +43,15 @@
       </div>
     </nav>
     <main>
-		<!-- javascript call for list view -->
+		<!-- javascript section for grid view -->
       <div class="container-fluid tables">
-        <div class="" id="Data"></div>
+		<div class="row" id="gridbody">
+			<div class="griditem col-sm">
+				<h2>${row.fields["fldc10uWJMs8Kbwfp"]}</h2>
+				<img src="${row.fields["fldls2x0DbFSSZ3A5"]}" alt="Image unavailable.">
+				<p>${row.fields["fldoISxwtISg14mGW"]}</p>
+			</div>
+		</div>
       </div>
 	</main>
     <footer></footer>
@@ -54,6 +60,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="script.js" defer></script>
+    
   </body>
 </html>
