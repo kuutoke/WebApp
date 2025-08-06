@@ -3,42 +3,44 @@
 //constants
 const airUrl = `https://api.airtable.com/v0/app9TUcYzYbLtSc81/Reference%20Links`;
 const token = `pathBADIOjtLtrliZ.79eb3cd8ca485b826778840b03b8a714c7e1b8dc18180bb5f95afb38aebf371d`;
+const baseId = `app9TUcYzYbLtSc81`;
+const tableId = `tblQjuvCaEFjawQYE`;
 
 //Eventually will make functions to sort, but let's start here
 //template first? i dont know what im doing
 
 class Grid {
-	constructor(title, thumb, type) {
-		this.title = title;
-		this.thumb = thumb;
-		this.type = type;
-	}
+  constructor(title, thumb, type) {
+    this.title = title;
+    this.thumb = thumb;
+    this.type = type;
+  }
 }
 
 let gridItems = [];
 
-
 //main function
-const getAllData = async () => {
-	const apiKey = `pathBADIOjtLtrliZ.79eb3cd8ca485b826778840b03b8a714c7e1b8dc18180bb5f95afb38aebf371d`;
-	const baseId = `tblQjuvCaEFjawQYE`;
-	const tableName = `Reference Links`;
-	
-	const url = `https://api.airtable.com/v0/${baseId}/${tableName}`;
-	const options = {
-		method: "GET",
-		headers: {
-			Authorization: `Bearer ${apiKey}`,
-		},
-	};
-	
-	try {
-		const response = await fetch (url, options);
-		if (!response.ok) {
-			throw new Error("Failed to fetch data from Airtable.")
-		}
-		
-		const data = await response.json();
+const getAllData = async (baseId, tableId, token) => {
+  console.log(`getAllData`);
+  let response;
+  try {
+    response = await fetch(`https://api.airtable.com/v0/${baseId}/${tableId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(JSON.stringify(data.records, null, 2));
+    return data;
+  } catch (error) {
+    console.error("Error fetching table:", error);
+  }
+};
+
+/*		const data = await response.json();
 		
 		let content = "",
 		for (const record of data.records) {
@@ -66,8 +68,8 @@ const getAllData = async () => {
 };
 
 getAllData();
-	
-	
+	*/
+
 /* Old code that I have no idea if it works. didn't for me but its incomplete
 
 async function getAllRecords() {
