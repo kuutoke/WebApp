@@ -19,9 +19,19 @@ class Grid {
 
 let gridItems = [];
 
-//main function
-const getAllData = async (baseId, tableId, token) => {
-  console.log(`getAllData`);
+//enable searching
+function getAllQueryParams() {
+	const params = new URLSearchParams(window.location.search);
+	const queryParams = {};
+	for (const [key, value] of params.entries()) {
+		queryParams[key] = value;
+	}
+	return queryParams;
+}
+
+//fetching airtable with error handling
+const fetchTable = async (baseId, tableId, token) => {
+  console.log(`fetchTable`);
   let response;
   try {
     response = await fetch(`https://api.airtable.com/v0/${baseId}/${tableId}`, {
@@ -38,6 +48,55 @@ const getAllData = async (baseId, tableId, token) => {
   } catch (error) {
     console.error("Error fetching table:", error);
   }
+};
+
+//enabling filtering of data by subject and category
+const filterData = (data, subject, category) => {
+	const filteredData = data.records.filter((record) => {
+		return (
+		  record.fields.Subject.toLowerCase() === subject &&
+		  record.fields.Category.toLowerCase() === category
+		);
+	});
+	return filteredData;
+};
+
+//rendering based on subject
+const renderDrawings = (rows, category) => {
+	let innerHTML = "";
+	rows.forEach((row) => {
+		const article = `
+		  <article>
+		    <h2>${row.fields["name"]}</h2>
+			<p>${row.fields["additional_info"]}</p>
+		  </article>`;
+		innerHTML += article;
+	});
+	return innerHTML;
+};
+const renderGeneral = (rows, category) => {
+	let innerHTML = "";
+	rows.forEach((row) => {
+		const article = `
+		  <article>
+		    <h2>${row.fields["name"]}</h2>
+			<p>${row.fields["additional_info"]}</p>
+		  </article>`;
+		innerHTML += article;
+	});
+	return innerHTML;
+};
+const renderWorldbuilding = (rows, category) => {
+	let innerHTML = "";
+	rows.forEach((row) => {
+		const article = `
+		  <article>
+		    <h2>${row.fields["name"]}</h2>
+			<p>${row.fields["additional_info"]}</p>
+		  </article>`;
+		innerHTML += article;
+	});
+	return innerHTML;
 };
 
 /*		const data = await response.json();
