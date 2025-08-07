@@ -1,3 +1,76 @@
+"use strict";
+
+// function for our list view
+async function getAllRecords() {
+  let getResultElement = document.getElementById("container");
+
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer pathBADIOjtLtrliZ.79eb3cd8ca485b826778840b03b8a714c7e1b8dc18180bb5f95afb38aebf371d`,
+    },
+  };
+
+  await fetch(
+    `https://api.airtable.com/v0/app9TUcYzYbLtSc81/tblQjuvCaEFjawQYE`,
+    options
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data); // response is an object w/ .records array
+
+      getResultElement.innerHTML = ""; // clear brews
+
+      let newHtml = "";
+
+      for (let i = 0; i < data.records.length; i++) {
+        let name = data.records[i].fields["name"]; 
+		let image = data.records[i].fields["images"];
+		let notes = data.records[i].fields["additional_info"];        
+
+        newHtml += `
+        
+         <div class="card" style="width: 18rem;">
+  <a href="index.html?id=${data.records[i].id}">${
+          image
+            ? `<img class="card-img-top rounded" alt="${name}" src="${image[0].url}">`
+            : ``
+        }
+          </a>
+  <div class="card-body">
+    <p class="card-text">${name}</p>
+	<p class="card-text">${notes}</p>
+  </div>
+</div>
+    
+        
+        `;
+      }
+
+      getResultElement.innerHTML = newHtml;
+    });
+}
+
+
+
+// look up window.location.search and split, so this would take
+// https://dmspr2021-airtable-app.glitch.me/index.html?id=receHhOzntTGZ44I5
+// and look at the ?id=receHhOzntTGZ44I5 part, then split that into an array
+// ["?id=", "receHhOzntTGZ44I5"] and then we only choose the second one
+let idParams = window.location.search.split("?id=");
+if (idParams.length >= 2) {
+ 
+  getOneRecord(idParams[1]); // create detail view HTML w/ our id
+} else {
+ 
+  getAllRecords(); // no id given, fetch summaries
+}
+
+
+
+
+
+/*
 "use scrict";
 
 //constants
@@ -98,17 +171,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-//OK I don't know what this is or how it works. who knows if this actually does things
-class Grid {
-  constructor(title, thumb, type) {
-    this.title = title;
-    this.thumb = thumb;
-    this.type = type;
-  }
-}
-
-let gridItems = [];
-
 //setting up List View
 const getAllData = async () => {
   const apiKey = `pathBADIOjtLtrliZ.79eb3cd8ca485b826778840b03b8a714c7e1b8dc18180bb5f95afb38aebf371d`;
@@ -134,25 +196,25 @@ const getAllData = async () => {
       throw new Error("Failed to fetch data from Airtable.");
     }
 
-    const container = document.getElementById("container");
+    let container = document.getElementById("container");
 
     let newHtml = "";
 
-    for (let i = 0; i < data.record.length; i++) {
-      const name = record.fields.name || "Title not available";
-      const thumb = record.fields.fldls2x0DbFSSZ3A5 || "Image not available";
-      const type = record.fields.type || "Type not available";
+    for (let i = 0; i < data.length; i++) {
+      const name = data.fields.name || "Title not available";
+      const thumb = data.fields.fldls2x0DbFSSZ3A5 || "Image not available";
+      const type = data.fields.type || "Type not available";
 
       //get image url
       const thumbUrl = thumb ? thumb : record.fields.fldls2x0DbFSSZ3A5[0]?.url;
 
       const card = `
-				<div>
-					<h3>${name}</h3>
-					<img src="${thumbUrl}" />
-					<p>${type}</p>
-				</div>
-			`;
+		<div>
+			<h3>${name}</h3>
+			<img src="${thumbUrl}" />
+			<p>${type}</p>
+		</div>
+	  `;
       newHtml += card;
     }
     container.innerHTML = newHtml;
@@ -190,3 +252,4 @@ async function getOneRecord(baseId, tableId, token, id) {
       getResultElement.innerHTML = newHtml;
     });
 }
+*/
