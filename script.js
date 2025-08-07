@@ -1,6 +1,6 @@
 "use strict";
 
-// function for our list view
+// function for our list view - all under async
 async function getAllRecords() {
   let getResultElement = document.getElementById("container");
 
@@ -29,21 +29,23 @@ async function getAllRecords() {
 		let notes = data.records[i].fields["additional_info"];        
 
         newHtml += `
-        
-         <div class="card" style="width: 18rem;">
-  <a href="index.html?id=${data.records[i].id}">${
-          image
-            ? `<img class="card-img-top rounded" alt="${name}" src="${image[0].url}">`
-            : ``
-        }
-          </a>
-  <div class="card-body">
-    <p class="card-text">${name}</p>
-	<p class="card-text">${notes}</p>
-  </div>
-</div>
-    
-        
+			<div class="griditem col-sm">
+				<div class="gridtitle">
+					<h2><a href="index.html?id=${data.records[i].id}">${name}</a></h2>
+				</div>
+				<div class="thumbnail">
+					${image
+						? `<img src="${image[0].url}" alt="Image of ${name} unavailable.">`
+						: ``
+					}
+				</div>
+				<p class="addt_info">
+					${notes
+						? `${notes}`
+						: ``
+					}
+				</p>
+			</div>
         `;
       }
 

@@ -2,10 +2,6 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h2 {
-  font-size: 100%;
-}
-
 /* FIND A WAY TO MAKE ALL LINKS SAME COLOR */
 link:hover {
   /*text color whatever*/
@@ -30,18 +26,6 @@ header {
   background-color: aliceblue;
 }
 
-/* accessible for phones */
-@media (max-width: 800px) {
-  .navbar {
-    flex-direction: column;
-  }
-  .container-fluid {
-    flex: column wrap;
-  }
-  .griditem {
-    min-width: 250px;
-  }
-}
 
 /* each menu dropdown */
 .menubutton {
@@ -73,15 +57,50 @@ li {
   padding: 10px 5px 10px 0px;
 }
 
-/* grid formatting and design */
+/* home page formatting and design */
 .container-fluid {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
+  align-items: start;
+  justify-content: space-evenly;
 }
 
 .griditem {
   background-color: goldenrod;
-  max-width: 25%;
+  width: 225px;
+  flex: 0 1 auto;
   padding: 1%;
-  margin: 1%;
+  margin-bottom: 1%;
+  border-radius: 5px;
+}
+
+.gridtitle {
+	/* align-content: center;
+	background-color: (25, 25, 25); */
+}
+
+.thumbnail {
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+img {
+	max-width: 100%;
+}
+
+.addt_info {
+	width: min-content;
+}
+
+/* accessible for phones */
+@media (max-width: 800px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .container-fluid {
+    flex: column wrap;
+  }
+  .griditem {
+    min-width: 250px;
+  }
 }
