@@ -4,34 +4,73 @@
     <meta charset="UTF-8" />
     <title>Art Reference Hub</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
-      <p>
       <h1><a href="./index.html">Welcome to the Artist Reference Hub.</a></h1>
       <hr />
-      This is simply an organized way to find all the generators, picture repositories,
-      and other links I have collected over the years but forget about.
-	  </p>
+      <p>
+        This is simply an organized way to find all the generators, picture
+        repositories, and other links I have collected over the years but forget
+        about.
+      </p>
     </header>
     <nav>
       <div class="navbar">
         <menu class="dropdown">
-          <li class="menu-button"><a href="./index.html?subject=drawing">Drawing</a></li>
+          <li class="menu-button">
+            <a href="./index.html?subject=drawing">Drawing</a>
+          </li>
           <div class="dd-link">
-            <li><a href="./index.html?subject=drawing&category=artist">Artist's Pages</a></li>
-            <li><a href="./index.html?subject=drawing&category=assets">Assets (CSP)</a></li>
-            <li><a href="./index.html?subject=drawing&category=models">Figure and Pose Models</a></li>
-            <li><a href="./index.html?subject=drawing&category=photography">Photography</a></li>
-            <li><a href="./index.html?subject=drawing&category=technique">Technique</a></li>
+            <li>
+              <a href="./index.html?subject=drawing&category=artist"
+                >Artist's Pages</a
+              >
+            </li>
+            <li>
+              <a href="./index.html?subject=drawing&category=assets"
+                >Assets (CSP)</a
+              >
+            </li>
+            <li>
+              <a href="./index.html?subject=drawing&category=models"
+                >Figure and Pose Models</a
+              >
+            </li>
+            <li>
+              <a href="./index.html?subject=drawing&category=photography"
+                >Photography</a
+              >
+            </li>
+            <li>
+              <a href="./index.html?subject=drawing&category=technique"
+                >Technique</a
+              >
+            </li>
           </div>
         </menu>
         <menu class="dropdown">
-          <li class="menu-button"><a href="./index.html?subject=general">General</a></li>
+          <li class="menu-button">
+            <a href="./index.html?subject=general">General</a>
+          </li>
           <div class="dd-link">
-            <li><a href="./index.html?subject=general&category=settings">Recommended Calibration and Settings</a></li>
-            <li><a href="./index.html?subject=general&category=study">Subject Studies</a></li>
+            <li>
+              <a href="./index.html?subject=general&category=settings"
+                >Recommended Calibration and Settings</a
+              >
+            </li>
+            <li>
+              <a href="./index.html?subject=general&category=study"
+                >Subject Studies</a
+              >
+            </li>
           </div>
         </menu>
         <menu class="dropdown">
@@ -43,23 +82,46 @@
       </div>
     </nav>
     <main>
-		<!-- javascript section for grid view -->
-      <div class="container-fluid tables">
-		<div class="row" id="gridbody">
-			<div class="griditem col-sm">
-				<h2>${row.fields["fldc10uWJMs8Kbwfp"]}</h2>
-				<img src="${row.fields["fldls2x0DbFSSZ3A5"]}" alt="Image unavailable.">
-				<p>${row.fields["fldoISxwtISg14mGW"]}</p>
-			</div>
-		</div>
+      <!-- javascript section for list view -->
+      <div class="container-fluid" id="container">
+        <div class="griditem col-sm">
+          <h2>Item One</h2>
+          <div class="thumbnail">
+            <img src="#" alt="Image unavailable." />
+          </div>
+          <p>
+            This is a description for item one. It might have links, or
+            additional information on how it differs from others of its kind.
+          </p>
+        </div>
+        <div class="griditem col-sm">
+          <h2>Item Two</h2>
+          <div class="thumbnail">
+            <img src="#" alt="Image unavailable." />
+          </div>
+          <p>
+            This is a description for item two. It might have links, or
+            additional information on how it differs from others of its kind.
+          </p>
+        </div>
+        <div class="griditem col-sm">
+          <h2>Item Three</h2>
+          <div class="thumbnail">
+            <img src="#" alt="Image unavailable." />
+          </div>
+          <p>
+            This is a description for item three. It might have links, or
+            additional information on how it differs from others of its kind.
+          </p>
+        </div>
       </div>
-	</main>
+    </main>
     <footer></footer>
-	<script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
     ></script>
-    
+    <script src="./script.js" defer></script>
   </body>
 </html>

@@ -8,7 +8,12 @@ h2 {
 
 /* FIND A WAY TO MAKE ALL LINKS SAME COLOR */
 link:hover {
-  font-color: white;
+  /*text color whatever*/
+}
+
+/* header styling */
+header {
+  padding: 25px;
 }
 
 /* navigation bar */
@@ -30,11 +35,17 @@ link:hover {
   .navbar {
     flex-direction: column;
   }
+  .container-fluid {
+    flex: column wrap;
+  }
+  .griditem {
+    min-width: 250px;
+  }
 }
 
 /* each menu dropdown */
 .menubutton {
-	//align text to the left
+  /*align text to the left*/
 }
 
 .dropdown {
@@ -63,10 +74,14 @@ li {
 }
 
 /* grid formatting and design */
-.gridbody {
-	display: flex;
+.container-fluid {
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 .griditem {
-	
+  background-color: goldenrod;
+  max-width: 25%;
+  padding: 1%;
+  margin: 1%;
 }
