@@ -1,15 +1,39 @@
+/* Font setup and body styling */
 body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Afacad", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-color: #BF222A;
+  background-color: #f0f0f0;
 }
 
-/* FIND A WAY TO MAKE ALL LINKS SAME COLOR */
-link:hover {
-  /*text color whatever*/
+/* Making links not do weird things */
+a:link
+{
+   color: #22BFB6;
+   text-decoration: none;
+}
+a:visited
+{
+   color: #22BFB6;
+   text-decoration: none;
+}
+a:hover
+{
+   color: #22BFB6;
+   text-decoration: none;
+}
+a:active
+{
+   color: #22BFB6;
+   text-decoration: none;
 }
 
 /* header styling */
 header {
   padding: 25px;
+  background-color: #a1a1a1;
 }
 
 /* navigation bar */
@@ -18,25 +42,29 @@ header {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-evenly;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
   margin-left: 40px;
   margin-right: 40px;
   margin-top: 50px;
   padding: 0;
-  background-color: aliceblue;
+  background-color: #a1a1a1;
+  border-radius: 5px;
+  border-color: #0a0a0a;
 }
 
 
 /* each menu dropdown */
 .menubutton {
   /*align text to the left*/
+  border-color: #656565;
+  border-radius: 5px;
 }
 
 .dropdown {
   list-style-type: none;
   position: relative;
   display: inline-block;
-  background-color: gray;
+  background-color: #555555;
 }
 
 .dd-link {
@@ -46,32 +74,34 @@ header {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 20px 16px;
-  z-index: 1;
 }
 
 .dropdown:hover .dd-link {
   display: block;
 }
 
-li {
-  padding: 10px 5px 10px 0px;
-}
+
 
 /* home page formatting and design */
 .container-fluid {
   display: flex;
   flex-flow: row wrap;
-  align-items: start;
   justify-content: space-evenly;
+  background-color: #cdcdcd;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 0px;
+  padding: 1%;
+
 }
 
 .griditem {
-  background-color: goldenrod;
+  background-color: #f0f0f0;
   width: 225px;
   flex: 0 1 auto;
   padding: 1%;
-  margin-bottom: 1%;
   border-radius: 5px;
+  border-color: #0a0a0a;
 }
 
 .gridtitle {
@@ -89,7 +119,7 @@ img {
 }
 
 .addt_info {
-	width: min-content;
+
 }
 
 /* accessible for phones */

@@ -11,22 +11,23 @@ async function getAllRecords() {
     },
   };
 
+// fetch data and place into webpage dynamically for List View
   await fetch(
     `https://api.airtable.com/v0/app9TUcYzYbLtSc81/tblQjuvCaEFjawQYE`,
     options
   )
-    .then((response) => response.json())
+    .then((response) => response.json()) // there is a valid response, proceed
     .then((data) => {
       console.log(data); // response is an object w/ .records array
 
-      getResultElement.innerHTML = ""; // clear brews
+      getResultElement.innerHTML = ""; // clear container HTML
 
       let newHtml = "";
 
-      for (let i = 0; i < data.records.length; i++) {
+      for (let i = 0; i < data.records.length; i++) { // for each table row, create and append HTML listing
         let name = data.records[i].fields["name"]; 
 		let image = data.records[i].fields["images"];
-		let notes = data.records[i].fields["additional_info"];        
+		let addt_info = data.records[i].fields["additional_info"];        
 
         newHtml += `
 			<div class="griditem col-sm">
@@ -40,8 +41,8 @@ async function getAllRecords() {
 					}
 				</div>
 				<p class="addt_info">
-					${notes
-						? `${notes}`
+					${addt_info
+						? `${addt_info}`
 						: ``
 					}
 				</p>
@@ -53,12 +54,57 @@ async function getAllRecords() {
     });
 }
 
+// Detail View enabling splitting of URL
 
 
-// look up window.location.search and split, so this would take
-// https://dmspr2021-airtable-app.glitch.me/index.html?id=receHhOzntTGZ44I5
-// and look at the ?id=receHhOzntTGZ44I5 part, then split that into an array
-// ["?id=", "receHhOzntTGZ44I5"] and then we only choose the second one
+//setting up Detail View
+/* async function getOneRecord(id) {
+  let getResultElement = document.getElementById("container");
+
+  await fetch(
+	`https://api.airtable.com/v0/app9TUcYzYbLtSc81/tblQjuvCaEFjawQYE`,
+    options
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+	  
+	  getResultElement.innerHTML = "";
+	  
+	  let newHtml = "";
+
+      let name = data.fields["name"];
+      let category = data.fields["category"];
+	  let subject = data.fields["subject"];
+      let url = data.fields["fldc10uWJMs8Kbwfp"];
+	  let addt_info = data.fields["additional_info"];
+	  let image = data.fields["images"];
+
+      newHtml = `
+		<div class="singletitle">
+			<h1>${name}</h1>
+			<h2>${category}, ${subject}</h2>
+		</div>
+		<div class="singlebody">
+			<p>${addt_info}</p>
+			</ br>
+			${image
+						? `<img src="${image[0].url}" alt="Image of ${name} unavailable.">`
+						: ``
+					}
+		</div>
+		`;
+
+      getResultElement.innerHTML = newHtml;
+    });
+}
+*/
+
+
+
+
+
+/*
 let idParams = window.location.search.split("?id=");
 if (idParams.length >= 2) {
  
@@ -67,12 +113,6 @@ if (idParams.length >= 2) {
  
   getAllRecords(); // no id given, fetch summaries
 }
-
-
-
-
-
-/*
 "use scrict";
 
 //constants
@@ -228,30 +268,5 @@ const getAllData = async () => {
 };
 getAllData();
 
-//setting up Detail View
-async function getOneRecord(baseId, tableId, token, id) {
-  let getResultElement = document.getElementById("container");
 
-  await fetch(`https://api.airtable.com/v0/${baseId}/${tableId}/${id}`, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-
-      const name = data.fields["fldc10uWJMs8Kbwfp"];
-      const category = data.fields["fldc10uWJMs8Kbwfp"];
-      const url = data.fields["fldc10uWJMs8Kbwfp"];
-
-      let newHtml = `
-		<div something>
-		</div>
-		`;
-
-      getResultElement.innerHTML = newHtml;
-    });
-}
 */
