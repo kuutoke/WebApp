@@ -54,6 +54,8 @@ async function getAllRecords() {
     });
 }
 
+getAllRecords();
+
 // Detail View enabling splitting of URL
 
 
