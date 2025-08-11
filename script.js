@@ -27,7 +27,7 @@ async function getAllRecords() {
       for (let i = 0; i < data.records.length; i++) { // for each table row, create and append HTML listing
         let name = data.records[i].fields["name"]; 
 		let image = data.records[i].fields["images"];
-		let addt_info = data.records[i].fields["additional_info"];        
+		let subject = data.records[i].fields["subject"];        
 
         newHtml += `
 			<div class="griditem col-sm">
@@ -40,12 +40,9 @@ async function getAllRecords() {
 						: ``
 					}
 				</div>
-				<p class="addt_info">
-					${addt_info
-						? `${addt_info}`
-						: ``
-					}
-				</p>
+				<div class="category">
+					<p>${subject}</p>
+				</div>
 			</div>
         `;
       }
@@ -57,11 +54,26 @@ async function getAllRecords() {
 getAllRecords();
 
 // Detail View enabling splitting of URL
-
+/* let idParams = window.location.search.split("?id=");
+if (idParams.length >= 2) {
+ 
+  getOneRecord(idParams[1]); // create detail view HTML w/ our id
+} else {
+ 
+  getAllRecords(); // no id given, fetch summaries
+}
+*/
 
 //setting up Detail View
 /* async function getOneRecord(id) {
-  let getResultElement = document.getElementById("container");
+ let getResultElement = document.getElementById("container");
+
+  const options = {
+		method: "GET",
+		headers: {
+		  Authorization: `Bearer pathBADIOjtLtrliZ.79eb3cd8ca485b826778840b03b8a714c7e1b8dc18180bb5f95afb38aebf371d`,
+		},
+  };
 
   await fetch(
 	`https://api.airtable.com/v0/app9TUcYzYbLtSc81/tblQjuvCaEFjawQYE`,
@@ -75,46 +87,44 @@ getAllRecords();
 	  
 	  let newHtml = "";
 
-      let name = data.fields["name"];
-      let category = data.fields["category"];
-	  let subject = data.fields["subject"];
-      let url = data.fields["fldc10uWJMs8Kbwfp"];
-	  let addt_info = data.fields["additional_info"];
-	  let image = data.fields["images"];
+      let name = data.[idParams[1]]fields["name"];
+      let category = data.[idParams[1]]fields["category"];
+	  let subject = data.[idParams[1]]fields["subject"];
+      let url = data.[idParams[1]]fields["url"];
+	  let addt_info = data.[idParams[1]]fields["additional_info"];
+	  let image = data.[idParams[1]]fields["images"];
 
       newHtml = `
-		<div class="singletitle">
+		<div class="singleitem">
+		  <div class="row">
 			<h1>${name}</h1>
 			<h2>${category}, ${subject}</h2>
-		</div>
-		<div class="singlebody">
-			<p>${addt_info}</p>
+		  </div>
+		  <div class="row">
+			<p>${addt_info
+						? `${addt_info}`
+						: ``
+					}</p>
 			</ br>
 			${image
 						? `<img src="${image[0].url}" alt="Image of ${name} unavailable.">`
 						: ``
 					}
+		  </div>
 		</div>
 		`;
 
       getResultElement.innerHTML = newHtml;
     });
 }
+
 */
 
 
 
 
-
 /*
-let idParams = window.location.search.split("?id=");
-if (idParams.length >= 2) {
- 
-  getOneRecord(idParams[1]); // create detail view HTML w/ our id
-} else {
- 
-  getAllRecords(); // no id given, fetch summaries
-}
+
 "use scrict";
 
 //constants
