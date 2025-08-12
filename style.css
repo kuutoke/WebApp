@@ -2,39 +2,36 @@
 body {
   font-family: "Afacad", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
+
   font-style: normal;
-  font-color: #BF222A;
+  color: #0a0a0a;
   background-color: #252525;
 }
 
-h1, h2 {
-	padding: 1%;
-	background-color: #e7e7e7;
-	border-radius: 5px;
+h1,
+h2 {
+  padding: 1%;
+  background-color: #e7e7e7;
+  border-radius: 5px;
 }
 
 /* Making links not do weird things */
-a:link
-{
-   color: #22BFB6;
-   text-decoration: none;
+a:link {
+  color: #22bfb6;
+  text-decoration: none;
 }
-a:visited
-{
-   color: #22BFB6;
-   text-decoration: none;
+a:visited {
+  color: #22bfb6;
+  text-decoration: none;
 }
-a:hover
-{
-   color: #22BFB6;
-   text-decoration: none;
-   background-color: #ffffff;
+a:hover {
+  color: #22bfb6;
+  text-decoration: none;
+  background-color: #ffffff;
 }
-a:active
-{
-   color: #22BFB6;
-   text-decoration: none;
+a:active {
+  color: #22bfb6;
+  text-decoration: none;
 }
 
 /* header styling */
@@ -58,24 +55,20 @@ header {
   border-radius: 5px;
 }
 
-
-
 .menubutton {
-
-
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* each menu dropdown */
 .dropdown {
-	  /*align text to the left*/
+  /*align text to the left*/
   list-style-type: none;
   position: relative;
   display: inline-block;
   background-color: #e7e7e7;
   border-radius: 5px;
+  padding-right: 40px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-
 }
 
 .dd-link {
@@ -116,21 +109,21 @@ header {
 }
 
 .gridtitle {
-	/* align-content: center;
+  /* align-content: center;
 	background-color: (25, 25, 25); */
 }
 
 .thumbnail {
-	border-radius: 10px;
-	overflow: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 100px;
 }
 
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 .addt_info {
-
 }
 
 /* accessible for phones */
