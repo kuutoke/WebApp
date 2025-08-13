@@ -30,12 +30,12 @@
     </header>
     <nav>
       <div class="navbar">
-        <menu class="dropdown">
-          <li class="menu-button drawing">
+        <menu class="dropdown Drawing"  onclick="filterResults('Drawing')">
+          <li class="menu-button">
             <p>Drawing</p>
           </li>
           <div class="dd-link">
-            <li class="">
+            <li>
               <a href="./index.html?subject=drawing&category=artist"
                 >Artist's Pages</a
               >
@@ -62,7 +62,7 @@
             </li>
           </div>
         </menu>
-        <menu class="dropdown">
+        <menu class="dropdown General">
           <li class="menu-button">
             <a href="./index.html?subject=general">General</a>
           </li>
@@ -79,7 +79,7 @@
             </li>
           </div>
         </menu>
-        <menu class="dropdown">
+        <menu class="dropdown Worldbuilding">
           <li class="menu-button">Worldbuilding</li>
           <div class="dd-link">
             <li><em>in progress</em></li>
@@ -90,7 +90,7 @@
     <main>
       <!-- javascript section for list view -->
       <div class="container-fluid" id="container">
-        <div class="griditem col-sm">
+        <div class="griditem col-sm General">
           <p>
             Items loading. If you don't see anything within 5 seconds, please
             reload the page.

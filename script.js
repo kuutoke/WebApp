@@ -28,10 +28,11 @@ async function getAllRecords() {
         // for each table row, create and append HTML listing
         let name = data.records[i].fields["name"];
         let image = data.records[i].fields["images"];
+		let subject = data.records[i].fields["subject"];
         let category = data.records[i].fields["category"];
 
         newHtml += `
-			<div class="griditem col-sm">
+			<div class="griditem col-sm ${subject}">
 				<div class="gridtitle">
 					<h2><a href="index.html?id=${data.records[i].id}">${name}</a></h2>
 				</div>
@@ -43,7 +44,7 @@ async function getAllRecords() {
           }
 				</div>
 				<div class="category">
-					<p>${category}</p><p hidden class="subject">${subject}</p>
+					<p>${category}</p>
 				</div>
 			</div>
         `;
@@ -114,24 +115,30 @@ if (idParams.length >= 2) {
 }
 
 // Selecting desired filter thru click event
-/* li.onclick = filterFunction();
-
-// Filtering by subject and category
-function filterFunction() {
-  let input = document.getElementById("navbar");
-  let filter = input.value.toUpperCase(); //ignores case
-  let singleitem = document.getElementsByClassName("singleitem");
-
-  for (i = 0; i < singleitem.length; i++) {
-    x = singleitem[i].getElementsByClassName("subject")[0];
-    if (x.innerHTML.toUpperCase().indexOf(filter) > -1) {
-      singleitem[i].style.display = ""; //blank is show
-    } else {
-      singleitem[i].style.display = "none";
-    }
-  }
+function filterResults(param) {
+	let items = document.getElementsByClassName("griditem");
+	
+	for (i = 0; i < items.length; i++) {
+		if (items[i].classList.contains(param)) {
+		  item[i].style.display = ""; //blank is show
+		} else {
+		  item[i].style.display = "none";
+		}
 }
-*/
+
+
+document.getElementById("drawingfilter").addEventListener("click", (event) => {
+	// Filtering by subject and category
+	  let input = document.getElementById("navbar");
+	  let filter = input.value.toUpperCase(); //ignores case
+	  let singleitem = document.getElementsByClassName("singleitem");
+	  let x = "";
+
+	  f
+	  }
+	}
+}
+
 
 /* Broken code
 async function getSubjRecords(subj) {
