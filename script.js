@@ -32,7 +32,7 @@ async function getAllRecords() {
         let category = data.records[i].fields["category"];
 
         newHtml += `
-			<div class="griditem col-sm ${subject}">
+			<div class="griditem col-sm ${subject} ${category}">
 				<div class="gridtitle">
 					<h2><a href="index.html?id=${data.records[i].id}">${name}</a></h2>
 				</div>
@@ -43,8 +43,8 @@ async function getAllRecords() {
               : ``
           }
 				</div>
-				<div class="category">
-					<p>${category}</p>
+				<div>
+					<p class="category">${category}</p>
 				</div>
 			</div>
         `;
@@ -118,136 +118,11 @@ if (idParams.length >= 2) {
 function filterResults(param) {
 	let items = document.getElementsByClassName("griditem");
 	
-	for (i = 0; i < items.length; i++) {
+	for (let i = 0; i < items.length; i++) {
 		if (items[i].classList.contains(param)) {
-		  item[i].style.display = ""; //blank is show
+		  items[i].style.display = ""; //blank is show
 		} else {
-		  item[i].style.display = "none";
+		  items[i].style.display = "none";
 		}
-}
-
-
-document.getElementById("drawingfilter").addEventListener("click", (event) => {
-	// Filtering by subject and category
-	  let input = document.getElementById("navbar");
-	  let filter = input.value.toUpperCase(); //ignores case
-	  let singleitem = document.getElementsByClassName("singleitem");
-	  let x = "";
-
-	  f
-	  }
 	}
 }
-
-
-/* Broken code
-async function getSubjRecords(subj) {
-  let getResultElement = document.getElementById("container");
-
-  const options = {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer pathBADIOjtLtrliZ.79eb3cd8ca485b826778840b03b8a714c7e1b8dc18180bb5f95afb38aebf371d`,
-    },
-  };
-
-  await fetch(
-    `https://api.airtable.com/v0/app9TUcYzYbLtSc81/tblQjuvCaEFjawQYE`,
-    options
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-
-      getResultElement.innerHTML = "";
-
-      let newHtml = "";
-      let name = data.fields["name"];
-      let category = data.fields["category"];
-      let subject = data.fields["subject"];
-      let link = data.fields["url"];
-      let addt_info = data.fields["additional_info"];
-      let image = data.fields["images"];
-
-      for (let i = 0; i < data.records.length; i++) {
-        if (subject == subj) {
-          // for each table row, create and append HTML listing
-          // this time, filtered by subject
-
-          newHtml += `
-        <div class="griditem col-sm">
-          <div class="gridtitle">
-            <h2><a href="index.html?id=${data.records[i].id}">${name}</a></h2>
-          </div>
-          <div class="thumbnail">
-            ${
-              image
-                ? `<img src="${image[0].thumbnails.large.url}" alt="Image of ${name} unavailable.">`
-                : ``
-            }
-          </div>
-          <div class="category">
-            <p>${category}</p>
-          </div>
-        </div>
-          `;
-        }
-      }
-      getResultElement.innerHTML = newHtml;
-    });
-}
-
-async function getCateRecords(cate) {
-  let getResultElement = document.getElementById("container");
-
-  const options = {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer pathBADIOjtLtrliZ.79eb3cd8ca485b826778840b03b8a714c7e1b8dc18180bb5f95afb38aebf371d`,
-    },
-  };
-
-  await fetch(
-    `https://api.airtable.com/v0/app9TUcYzYbLtSc81/tblQjuvCaEFjawQYE`,
-    options
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-
-      getResultElement.innerHTML = "";
-
-      let newHtml = "";
-
-      for (let i = 0; i < data.records.length; i++) {
-        // for each table row, create and append HTML listing
-        let name = data.fields["name"];
-        let category = data.fields["category"];
-        let subject = data.fields["subject"];
-        let link = data.fields["url"];
-        let addt_info = data.fields["additional_info"];
-        let image = data.fields["images"];
-
-        newHtml += `
-			<div class="griditem col-sm">
-				<div class="gridtitle">
-					<h2><a href="index.html?id=${data.records[i].id}">${name}</a></h2>
-				</div>
-				<div class="thumbnail">
-					${
-            image
-              ? `<img src="${image[0].thumbnails.large.url}" alt="Image of ${name} unavailable.">`
-              : ``
-          }
-				</div>
-				<div class="category">
-					<p>${category}</p>
-				</div>
-			</div>
-        `;
-      }
-
-      getResultElement.innerHTML = newHtml;
-    });
-}
-*/

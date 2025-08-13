@@ -13,6 +13,12 @@ h2 {
   padding: 1%;
   background-color: #e7e7e7;
   border-radius: 5px;
+  border: outset white;
+}
+
+h1:hover,
+h2:hover {
+  border: inset white;
 }
 
 /* Making links not do weird things */
@@ -27,7 +33,7 @@ a:visited {
 a:hover {
   color: #22bfb6;
   text-decoration: none;
-  background-color: #ffffff;
+  cursor: pointer;
 }
 a:active {
   color: #22bfb6;
@@ -52,23 +58,28 @@ header {
   width: 90%;
   padding: 0;
   background-color: #a1a1a1;
-  border-radius: 5px;
-}
-
-.menubutton {
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  outline: outset #cfcfcf;
+  border-radius: 3px;
 }
 
 /* each menu dropdown */
 .dropdown {
-  /*align text to the left*/
   list-style-type: none;
   position: relative;
   display: inline-block;
   background-color: #e7e7e7;
   border-radius: 5px;
   padding-right: 40px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+.dropdown.Drawing {
+  outline: outset #d9ffd9;
+}
+.dropdown.General {
+  outline: outset #ffffff;
+}
+.dropdown.Worldbuilding {
+  outline: outset #d9d9ff;
 }
 
 .dd-link {
@@ -78,6 +89,7 @@ header {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 20px 16px;
+  border: solid white;
   border-radius: 5px;
 }
 
@@ -94,6 +106,7 @@ header {
   margin-top: 0px;
   padding: 1%;
   width: 90%;
+  border: inset #a1a1a1;
 }
 
 .griditem {
@@ -103,7 +116,6 @@ header {
   padding: 1%;
   margin: 1%;
   border-radius: 5px;
-  border-color: #0a0a0a;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -119,21 +131,27 @@ header {
 }
 
 .gridtitle {
-  /* align-content: center;
-	background-color: (25, 25, 25); */
+  text-align: center;
 }
 
 .thumbnail {
   border-radius: 10px;
   overflow: hidden;
   max-height: 100px;
+  margin-top: 15px;
 }
 
 img {
   max-width: 100%;
 }
 
-.addt_info {
+.category {
+	border: solid white;
+	border-radius: 5px;
+	width: fit-content;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 15px;
 }
 
 /* accessible for phones */

@@ -30,58 +30,69 @@
     </header>
     <nav>
       <div class="navbar">
-        <button class="dropdown Drawing"  onclick="filterResults('Drawing')">
+        <menu class="dropdown Drawing">
           <li class="menu-button">
-            <p>Drawing</p>
+            <a onclick="filterResults('Drawing')">Drawing</a>
           </li>
-          <div class="dd-link">
+          <div class="dd-link Drawing">
             <li>
-              <a href="./index.html?subject=drawing&category=artist"
+              <a onclick="filterResults('Artist')"
                 >Artist's Pages</a
               >
             </li>
+			<hr />
             <li>
-              <a href="./index.html?subject=drawing&category=assets"
+              <a onclick="filterResults('Assets')"
                 >Assets (CSP)</a
               >
             </li>
+			<hr />
             <li>
-              <a href="./index.html?subject=drawing&category=models"
+              <a onclick="filterResults('Models')"
                 >Figure and Pose Models</a
               >
             </li>
+			<hr />
             <li>
-              <a href="./index.html?subject=drawing&category=photography"
+              <a onclick="filterResults('Photography')"
                 >Photography</a
               >
             </li>
+			<hr />
             <li>
-              <a href="./index.html?subject=drawing&category=technique"
+              <a onclick="filterResults('Technique')"
                 >Technique</a
               >
             </li>
           </div>
-        </button>
+        </menu>
         <menu class="dropdown General">
           <li class="menu-button">
-            <a href="./index.html?subject=general">General</a>
+            <a onclick="filterResults('General')">General</a>
           </li>
-          <div class="dd-link">
+          <div class="dd-link General">
             <li>
-              <a href="./index.html?subject=general&category=settings"
+              <a onclick="filterResults('Settings')"
                 >Recommended Calibration and Settings</a
               >
             </li>
+			<hr />
             <li>
-              <a href="./index.html?subject=general&category=study"
+              <a onclick="filterResults('Study')"
                 >Subject Studies</a
+              >
+            </li>
+			<hr />
+            <li>
+              <a onclick="filterResults('Tools')"
+                >Tools</a
               >
             </li>
           </div>
         </menu>
         <menu class="dropdown Worldbuilding">
           <li class="menu-button">Worldbuilding</li>
-          <div class="dd-link">
+          <div class="dd-link Worldbuilding">
             <li><em>in progress</em></li>
           </div>
         </menu>
