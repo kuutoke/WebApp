@@ -1,6 +1,6 @@
 "use strict";
 
-// function for our list view - all under async
+// function for grid view - all under async
 async function getAllRecords() {
   let getResultElement = document.getElementById("container");
 
@@ -28,7 +28,7 @@ async function getAllRecords() {
         // for each table row, create and append HTML listing
         let name = data.records[i].fields["name"];
         let image = data.records[i].fields["images"];
-        let subject = data.records[i].fields["subject"];
+        let category = data.records[i].fields["category"];
 
         newHtml += `
 			<div class="griditem col-sm">
@@ -38,12 +38,12 @@ async function getAllRecords() {
 				<div class="thumbnail">
 					${
             image
-              ? `<img src="${image[0].url}" alt="Image of ${name} unavailable.">`
+              ? `<img src="${image[0].thumbnails.large.url}" alt="Image of ${name} unavailable.">`
               : ``
           }
 				</div>
 				<div class="category">
-					<p>${subject}</p>
+					<p>${category}</p><p hidden class="subject">${subject}</p>
 				</div>
 			</div>
         `;
@@ -52,25 +52,6 @@ async function getAllRecords() {
       getResultElement.innerHTML = newHtml;
     });
 }
-
-// Splitting of URL to do one versus all
-let idParams = window.location.search.split("?id=");
-if (idParams.length >= 2) {
-  getOneRecord(idParams[1]); // create detail view HTML w/ our id
-} else {
-  getAllRecords(); // no id given, fetch summaries
-}
-
-// Filtering by subject and category
-let subjectParams = window.location.search.split("?subject=");
-let catParams = window.location.search.split("&category=");
-if (subjectParams.length >= 2) {
-  if (catParams.length >= 2) {
-    //filter by category
-  } else {
-    //filter by subject
-  }
-} //maybe add another else if doesn't work
 
 //setting up Detail View
 async function getOneRecord(id) {
@@ -106,8 +87,9 @@ async function getOneRecord(id) {
 		  <div class="singleitem">
 		    <div class="singleinfo">
 			    <h1>${name}</h1>
-			    <h2>${subject}</h2><h2>${category}</h2>
+			    <h2>${subject}, ${category}</h2>
 			    <p>${addt_info ? `${addt_info}` : ``}</p>
+          <p>Source: <a href="${link}">${link}</a></p>
         </div>
         <div class="singleimgs">
 			    ${
@@ -123,8 +105,92 @@ async function getOneRecord(id) {
     });
 }
 
-// Filtering Functions
-async function getSubjectRecord(subject) {
+// Splitting of URL to do one versus all
+let idParams = window.location.search.split("?id=");
+if (idParams.length >= 2) {
+  getOneRecord(idParams[1]); // create detail view HTML w/ our id
+} else {
+  getAllRecords(); // no id given, fetch summaries
+}
+
+// Selecting desired filter thru click event
+/* li.onclick = filterFunction();
+
+// Filtering by subject and category
+function filterFunction() {
+  let input = document.getElementById("navbar");
+  let filter = input.value.toUpperCase(); //ignores case
+  let singleitem = document.getElementsByClassName("singleitem");
+
+  for (i = 0; i < singleitem.length; i++) {
+    x = singleitem[i].getElementsByClassName("subject")[0];
+    if (x.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      singleitem[i].style.display = ""; //blank is show
+    } else {
+      singleitem[i].style.display = "none";
+    }
+  }
+}
+*/
+
+/* Broken code
+async function getSubjRecords(subj) {
+  let getResultElement = document.getElementById("container");
+
+  const options = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer pathBADIOjtLtrliZ.79eb3cd8ca485b826778840b03b8a714c7e1b8dc18180bb5f95afb38aebf371d`,
+    },
+  };
+
+  await fetch(
+    `https://api.airtable.com/v0/app9TUcYzYbLtSc81/tblQjuvCaEFjawQYE`,
+    options
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+
+      getResultElement.innerHTML = "";
+
+      let newHtml = "";
+      let name = data.fields["name"];
+      let category = data.fields["category"];
+      let subject = data.fields["subject"];
+      let link = data.fields["url"];
+      let addt_info = data.fields["additional_info"];
+      let image = data.fields["images"];
+
+      for (let i = 0; i < data.records.length; i++) {
+        if (subject == subj) {
+          // for each table row, create and append HTML listing
+          // this time, filtered by subject
+
+          newHtml += `
+        <div class="griditem col-sm">
+          <div class="gridtitle">
+            <h2><a href="index.html?id=${data.records[i].id}">${name}</a></h2>
+          </div>
+          <div class="thumbnail">
+            ${
+              image
+                ? `<img src="${image[0].thumbnails.large.url}" alt="Image of ${name} unavailable.">`
+                : ``
+            }
+          </div>
+          <div class="category">
+            <p>${category}</p>
+          </div>
+        </div>
+          `;
+        }
+      }
+      getResultElement.innerHTML = newHtml;
+    });
+}
+
+async function getCateRecords(cate) {
   let getResultElement = document.getElementById("container");
 
   const options = {
@@ -146,30 +212,35 @@ async function getSubjectRecord(subject) {
 
       let newHtml = "";
 
-      let name = data.fields["name"];
-      let category = data.fields["category"];
-      let subject = data.fields["subject"];
-      let link = data.fields["url"];
-      let addt_info = data.fields["additional_info"];
-      let image = data.fields["images"];
+      for (let i = 0; i < data.records.length; i++) {
+        // for each table row, create and append HTML listing
+        let name = data.fields["name"];
+        let category = data.fields["category"];
+        let subject = data.fields["subject"];
+        let link = data.fields["url"];
+        let addt_info = data.fields["additional_info"];
+        let image = data.fields["images"];
 
-      newHtml = `
-		  <div class="singleitem">
-		    <div class="singleinfo">
-			    <h1>${name}</h1>
-			    <h2>${subject}</h2><h2>${category}</h2>
-			    <p>${addt_info ? `${addt_info}` : ``}</p>
-        </div>
-        <div class="singleimgs">
-			    ${
+        newHtml += `
+			<div class="griditem col-sm">
+				<div class="gridtitle">
+					<h2><a href="index.html?id=${data.records[i].id}">${name}</a></h2>
+				</div>
+				<div class="thumbnail">
+					${
             image
-              ? `<img src="${image[0].url}" alt="Image of ${name} unavailable.">`
+              ? `<img src="${image[0].thumbnails.large.url}" alt="Image of ${name} unavailable.">`
               : ``
           }
-        </div>
-      </div>
-      `;
+				</div>
+				<div class="category">
+					<p>${category}</p>
+				</div>
+			</div>
+        `;
+      }
 
       getResultElement.innerHTML = newHtml;
     });
 }
+*/
