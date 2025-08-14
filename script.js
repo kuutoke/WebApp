@@ -28,7 +28,7 @@ async function getAllRecords() {
         // for each table row, create and append HTML listing
         let name = data.records[i].fields["name"];
         let image = data.records[i].fields["images"];
-		let subject = data.records[i].fields["subject"];
+        let subject = data.records[i].fields["subject"];
         let category = data.records[i].fields["category"];
 
         newHtml += `
@@ -90,7 +90,7 @@ async function getOneRecord(id) {
 			    <h1>${name}</h1>
 			    <h2>${subject}, ${category}</h2>
 			    <p>${addt_info ? `${addt_info}` : ``}</p>
-          <p>Source: <a href="${link}">${link}</a></p>
+          <p>Source: <a href="${link}" target="_blank">${link}</a></p>
         </div>
         <div class="singleimgs">
 			    ${
@@ -116,13 +116,13 @@ if (idParams.length >= 2) {
 
 // Selecting desired filter thru click event
 function filterResults(param) {
-	let items = document.getElementsByClassName("griditem");
-	
-	for (let i = 0; i < items.length; i++) {
-		if (items[i].classList.contains(param)) {
-		  items[i].style.display = ""; //blank is show
-		} else {
-		  items[i].style.display = "none";
-		}
-	}
+  let items = document.getElementsByClassName("griditem");
+
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].classList.contains(param)) {
+      items[i].style.display = ""; //blank is show
+    } else {
+      items[i].style.display = "none";
+    }
+  }
 }

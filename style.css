@@ -121,13 +121,13 @@ header {
 
 /* color based on item category */
 .Drawing {
-	background-color: #A7CFA7;
+  background-color: #a7cfa7;
 }
 .General {
   background-color: #cfcfcf;
 }
 .Worldbuilding {
-	background-color: #A7A7CF;
+  background-color: #a7a7cf;
 }
 
 .gridtitle {
@@ -146,12 +146,17 @@ img {
 }
 
 .category {
-	border: solid white;
-	border-radius: 5px;
-	width: fit-content;
-	padding-left: 5px;
-	padding-right: 5px;
-	margin-top: 15px;
+  border: solid white;
+  border-radius: 5px;
+  width: fit-content;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 15px;
+}
+
+/* Single item styling */
+.singleitem p {
+  color: #e7e7e7;
 }
 
 /* accessible for phones */
