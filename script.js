@@ -30,6 +30,7 @@ async function getAllRecords() {
         let image = data.records[i].fields["images"];
         let subject = data.records[i].fields["subject"];
         let category = data.records[i].fields["category"];
+		let caption = data.records[i].fields["additional_info"];
 
         newHtml += `
 			<div class="griditem col-sm ${subject} ${category}">
@@ -42,6 +43,9 @@ async function getAllRecords() {
               ? `<img src="${image[0].thumbnails.large.url}" alt="Image of ${name} unavailable.">`
               : ``
           }
+				</div>
+				<div>
+					<p class="caption">${caption}</p>
 				</div>
 				<div>
 					<p class="category">${category}</p>

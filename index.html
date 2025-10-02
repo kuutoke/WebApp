@@ -19,93 +19,105 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1><a href="./index.html">Welcome to the Artist Reference Hub.</a></h1>
-      <hr />
-      <p>
-        This is simply an organized way to find all the generators, picture
-        repositories, and other links I have collected over the years but forget
-        about.
-      </p>
+    <header class="container-fluid">
+		<div class="row">
+			<p class="title">
+				Artist Reference Hub
+			</p>
+		</div>
+		<hr  />
+		<div class="headnav row">
+			<h1 class="col-2"><a href="./index.html">Home</a></h1>
+			<div class="col-6 navbar">
+				<menu class="dropdown Drawing">
+				  <li class="menu-button">
+					<a onclick="filterResults('Drawing')">Drawing</a>
+				  </li>
+				  <div class="dd-link Drawing">
+					<li>
+					  <a onclick="filterResults('Artist')"
+						>Artist's Pages</a
+					  >
+					</li>
+					<hr />
+					<li>
+					  <a onclick="filterResults('Assets')"
+						>Assets (CSP)</a
+					  >
+					</li>
+					<hr />
+					<li>
+					  <a onclick="filterResults('Models')"
+						>Figure and Pose Models</a
+					  >
+					</li>
+					<hr />
+					<li>
+					  <a onclick="filterResults('Photography')"
+						>Photography</a
+					  >
+					</li>
+					<hr />
+					<li>
+					  <a onclick="filterResults('Technique')"
+						>Technique</a
+					  >
+					</li>
+				  </div>
+				</menu>
+				<menu class="dropdown General">
+				  <li class="menu-button">
+					<a onclick="filterResults('General')">General</a>
+				  </li>
+				  <div class="dd-link General">
+					<li>
+					  <a onclick="filterResults('Settings')"
+						>Recommended Calibration and Settings</a
+					  >
+					</li>
+					<hr />
+					<li>
+					  <a onclick="filterResults('Study')"
+						>Subject Studies</a
+					  >
+					</li>
+					<hr />
+					<li>
+					  <a onclick="filterResults('Tools')"
+						>Tools</a
+					  >
+					</li>
+				  </div>
+				</menu>
+				<menu class="dropdown Worldbuilding">
+				  <li class="menu-button">Worldbuilding</li>
+				  <div class="dd-link Worldbuilding">
+					<li>
+					  <a onclick="filterResults('Naming')"
+						>Naming</a
+					  >
+					</li>
+					<hr />
+					<li>
+					  <a onclick="filterResults('Prompts')"
+						>Prompts</a
+					  >
+					</li>
+				  </div>
+				</menu>
+			</div>
+		</div>
     </header>
-    <nav>
-      <div class="navbar">
-        <menu class="dropdown Drawing">
-          <li class="menu-button">
-            <a onclick="filterResults('Drawing')">Drawing</a>
-          </li>
-          <div class="dd-link Drawing">
-            <li>
-              <a onclick="filterResults('Artist')"
-                >Artist's Pages</a
-              >
-            </li>
-			<hr />
-            <li>
-              <a onclick="filterResults('Assets')"
-                >Assets (CSP)</a
-              >
-            </li>
-			<hr />
-            <li>
-              <a onclick="filterResults('Models')"
-                >Figure and Pose Models</a
-              >
-            </li>
-			<hr />
-            <li>
-              <a onclick="filterResults('Photography')"
-                >Photography</a
-              >
-            </li>
-			<hr />
-            <li>
-              <a onclick="filterResults('Technique')"
-                >Technique</a
-              >
-            </li>
-          </div>
-        </menu>
-        <menu class="dropdown General">
-          <li class="menu-button">
-            <a onclick="filterResults('General')">General</a>
-          </li>
-          <div class="dd-link General">
-            <li>
-              <a onclick="filterResults('Settings')"
-                >Recommended Calibration and Settings</a
-              >
-            </li>
-			<hr />
-            <li>
-              <a onclick="filterResults('Study')"
-                >Subject Studies</a
-              >
-            </li>
-			<hr />
-            <li>
-              <a onclick="filterResults('Tools')"
-                >Tools</a
-              >
-            </li>
-          </div>
-        </menu>
-        <menu class="dropdown Worldbuilding">
-          <li class="menu-button">Worldbuilding</li>
-          <div class="dd-link Worldbuilding">
-            <li><em>in progress</em></li>
-          </div>
-        </menu>
-      </div>
-    </nav>
+    
     <main>
       <!-- javascript section for list view -->
       <div class="container-fluid" id="container">
         <div class="griditem col-sm General">
           <p>
-            Items loading. If you don't see anything within 5 seconds, please
-            reload the page.
-          </p>
+			This is simply an organized way to find all the generators, picture
+			repositories, and other links I have collected over the years but forget
+			about.
+		  </p>
         </div>
       </div>
     </main>
