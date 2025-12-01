@@ -1,4 +1,9 @@
+
+
+
+/* Below is old styling; killed it all for now so i can start from ground up. */
 /* Font setup and body styling */
+/*
 body {
   font-family: "Afacad", sans-serif;
   font-optical-sizing: auto;
@@ -30,8 +35,9 @@ h2:hover {
 	font-size: 400%;
 	text-align: center;
 }
-
+*/
 /* Making links not do weird things */
+/*
 a:link {
   color: #22bfb6;
   text-decoration: none;
@@ -49,8 +55,9 @@ a:active {
   color: #22bfb6;
   text-decoration: none;
 }
-
+*/
 /* header styling */
+/*
 header {
   height: min-content;
   background-color: #b9b9b9;
@@ -60,13 +67,15 @@ header {
   margin-left: 50px;
   justify-content: space-evenly;
 }
-
+*/
 /* navigation bar */
+/*
 .navbar {
   list-style-type: none;
 }
-
+*/
 /* each menu dropdown */
+/*
 .dropdown {
   font-size: 150%;
   list-style-type: none;
@@ -102,8 +111,9 @@ header {
 .dropdown:hover .dd-link {
   display: block;
 }
-
+*/
 /* home page formatting and design */
+/*
 #container {
   display: flex;
   flex-flow: row wrap;
@@ -124,9 +134,9 @@ header {
   border-radius: 5px;
   box-shadow: 0px 4px 3px 3px rgba(0, 0, 0, .5);
 }
-
+*/
 /* color based on item category */
-.Drawing {
+/*.Drawing {
   background-color: #a7cfa7;
 }
 .General {
@@ -159,13 +169,15 @@ img {
   padding-right: 5px;
   margin-top: 15px;
 }
-
+*/
 /* Single item styling */
+/*
 .singleitem p {
   color: #e7e7e7;
 }
-
+*/
 /* accessible for phones */
+/*
 @media (max-width: 800px) {
   .navbar {
     flex-direction: column;
@@ -177,3 +189,4 @@ img {
     min-width: 250px;
   }
 }
+*/
