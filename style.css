@@ -1,4 +1,42 @@
+/* General Styling */
+body {
+    font: 12px Verdana, sans-serif;
+}
 
+/* Button Styling */
+.btnGetAll {
+    background: lightgrey;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    padding: 5px;
+}
+.btnGetFilter {
+    background: lightgrey;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    display: inline-block;
+    padding: 5px;
+}
+.groupSubject {
+    display: inline-block;
+}
+.subject {
+    display: inline-block;
+}
+
+/* Tooltips (info on hover) */
+.btnGetFilter {
+    position: relative;
+}
+.info {
+    position: absolute;
+    visibility: hidden;
+}
+.btnGetFilter:hover .info {
+    visibility: visible;
+}
 
 
 /* Below is old styling; killed it all for now so i can start from ground up. */

@@ -10,18 +10,112 @@
     <body>
         <header>
             <h1>Artist Reference Hub</h1>
-            <p>Here you can find worldbuilding prompts, figure drawing poses, technique tutorials, and more. You can start by clicking "See All" to explore what there is to offer, or click one of the other buttons to start with a more specified filtered view.</p>
+            <p>Here you can find worldbuilding prompts, figure drawing poses, technique tutorials, and more. You can start by clicking "See All" to explore what there is to offer, or click one of the other buttons to get a specified filtered view.</p>
+            <p>This is very much a work in progress. I'm learning and testing my knowledge by building this site entirely from scratch. Comments, suggestions, and issues are greatly appreciated; if you know how to contact me go ahead, if you don't, I'm not sure how you got to this page, but I'll set something up eventually.</p>
         </header>
         <nav> <!-- general types of resource ; why did you come to this page? -->
             <div> <!-- grouping of see all -->
-                <button>
+                <div class="btnGetAll">
+                    See All
+                    <span class="info">Loads more data, but you can filter again on the next page.</span>
+                </div>
             </div>
             <div> <!-- grouping of filter buttons -->
-                <button>
-                <button>
-                <button>
+                <!-- potentially you click on one of the below subject buttons and it opens up to multiple other options. thats flair though not function -->
+                <div>
+                    <h2>I am...</h2>
+                </div>
+                <div>
+                    <div class="groupSubject">
+                        <div class="btnGetFilter subject">
+                            Drawing
+                        </div>
+                        <div>
+                            <div class="btnGetFilter">
+                                Figure Drawing Models
+                                <span class="info">Standard fare poses and models, nude and clothed. Pages that lead directly to nudity are tagged NSFW.</span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Color Theory and Palettes
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                3D Models
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Reference Simulations
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Niche Subject Studies
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Technique Tutorials
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Unique Models and Poses
+                                <span class="info"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="groupSubject">
+                        <div class="btnGetFilter subject">
+                            Worldbuilding
+                        </div>
+                        <div>
+                            <div class="btnGetFilter">
+                                Naming Resources
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Outfits and Visual References
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Miscellaneous Prompts
+                                <span class="info"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="groupSubject">
+                        <div class="btnGetFilter subject">
+                            Learning
+                        </div>
+                        <div>
+                            <div class="btnGetFilter">
+                                Clip Studio Paint
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Hardware and Display Settings
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Artist Websites
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Photography
+                                <span class="info"></span>
+                            </div>
+                            <div class="btnGetFilter">
+                                Color Accessibility
+                                <span class="info"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
+        <main>
+            <!-- links or builtin display of tumblr inspo pics, like design, aesthetic, etc -->
+            <h2>What and why?</h2>
+            <p>For well over a decade I've been saving drawings prompts, visual references, userful websites, resources, techniques, and more- all in whatever place and format was most convenient at the time. I remember nothing and haven't been able to find half of my potential saved info; and the ones I have been able to find were saved on Tumblr, which has a notoriously terrible searching and preservation system. Rather than relying on me remembering I have a relevant reference and spending half an hour looking for it any time I sit down to draw, I finally bit the bullet and learned how to make a website. Lacking in a significant amount of references and with buggy code, this hub has at least been established and now has room to grow and develop.</p>
+            <p>I've been calling it the Artist Reference Hub and often refer to just drawing, but this will hopefully be a place to bounce off from for creation in general. The Drawing tag is for references pulled for and looked at while drawing. Worldbuilding is more about the ideas and questions; it can be a jumping-off point for lore development with something as specified as a name generator or as involved as an index of questions to ask yourself while developing a fictional political structure. The name for "Learning" has changed but I think this encapsulates the idea behind it best: you go here when you aren't actively working on a piece but want to acquire more tools or understanding. It's a catch-all for everything from Clip Studio Paint brushes to websites where you can check the display settings of your monitor.</p>
+        </main>
         <footer>
             <p>Copyright 2025 Artist Reference Hub</p>
         </footer>
